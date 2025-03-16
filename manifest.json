@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "YouTube Subtitle Switcher",
+  "version": "1.0",
+  "description": "Switch YouTube subtitles between English and Chinese with a hotkey",
+  "permissions": ["tabs", "activeTab", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "toggle-subtitles": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Toggle subtitles between English and Chinese"
+    }
+  }
+}
